@@ -1,0 +1,114 @@
+pipeline:
+    0_cube:
+        parent_frame_id: "map"
+        pose:
+            position:
+                x: 0
+                y: 0
+                z: 0
+            orientation:
+                x: 0
+                y: 0
+                z: .3826834
+                w: .9238795
+        opacity: 1
+        rgb: [0,0,1]
+        scale: [.5,.5,.5] # each lengh. Pivot point in the box center.
+    10_arrow:
+        parent_frame_id: "map"
+        pose:
+            position:
+                x: 0
+                y: 1
+                z: 0
+            orientation: #Pivot point is around the tip of its tail. Identity orientation points it along the +X axis.
+                x: 0
+                y: 0
+                z: 0
+                w: 1
+        opacity: 1
+        rgb: [1,0,0]
+        arrow_length: .5
+        arrow_width: 0.05
+        arrow_height: 0.05
+    2_ppArrow:
+        parent_frame_id: "map"
+        begin:
+            position:
+                x: 0
+                y: 2
+                z: 0
+        end:
+            position:
+                x: .5
+                y: 1.5
+                z: .5
+        opacity: 1
+        rgb: [1,0,0]
+        shaft_diameter: .1
+        head_diameter:  .2
+        head_length: 0
+    3_sphere:
+        parent_frame_id: "map"
+        pose:
+            position:
+                x: 0
+                y: 3
+                z: 0
+            orientation:
+                x: 0
+                y: 0
+                z: 0
+                w: 1
+        opacity: 1
+        rgb: [0,1,1]
+        scale: [.5,.5,.5] # each axis' diameter
+    4_cylinder:
+        parent_frame_id: "map"
+        pose:
+            position:
+                x: 0
+                y: 4
+                z: 0
+            orientation:
+                x: 0
+                y: 0
+                z: 0
+                w: 1
+        opacity: 1
+        rgb: [1,1,1]
+        diameter_x: 0.5
+        diameter_y: 0.5
+        height: 0.5
+    5_mesh:
+        parent_frame_id: "map"
+        pose:
+            position:
+                x: 0
+                y: -1
+                z: 0
+            orientation:
+                x: 0
+                y: 0
+                z: .7071068
+                w: .7071068
+        opacity: 0   # zero define the material texture if it exists
+        rgb: [0,0,0] # zero define the material texture if it exists
+        scale: [.5,.5,.5] # each lengh
+        source: "package://ros_marker_publisher/meshes/rubber_duck/duck.dae"
+    6_text:
+        parent_frame_id: "map"
+        pose:
+            position:
+                x: -1
+                y: -2
+                z: 0.5
+            orientation:
+                x: 0
+                y: 0
+                z: 0
+                w: 1
+        opacity: 1
+        rgb: [1,.5,1]
+        scale: 0.25
+        text: "Quack Quack !!!"

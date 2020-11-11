@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="yaml_0_pipeline_filename" default="$(find ros_marker_publisher)/yaml/pipeline.yaml" />
+
+    <!-- Node -->
+    <node name="ros_marker_publisher" pkg="ros_marker_publisher" type="ros_marker_publisher_node" clear_params="true"  output="screen">
+      <rosparam command="load" ns="" file="$(arg yaml_0_pipeline_filename)" subst_value="true" if="$(eval bool(yaml_0_pipeline_filename))" />
+    </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ros_marker_publisher)/config/rviz.rviz" />
+
+</launch>
